@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Foods you have eaten</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Calorie</th>
+            <th scope="col">Meal</th>
+            <th scope="col">Date Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.food.name }}</td>
+                <td>{{ obj.food.calorie }}</td>
+                <td>{{ obj.get_meal_display }}</td>
+                <td>{{ obj.created_at }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

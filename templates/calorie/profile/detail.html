@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Calorie Profile</h2>
+    <p>Maximum Calorie per day : {{ object.max_daily_calorie }}</p>
+    <a class="btn btn-primary" href="{% url 'calorie_profile_edit' %}">Edit Calorie Profile</a>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Users Calorie data</h1>
+    <a class="btn btn-primary" href="{% url 'users_calorie_list_export' %}">Export csv</a>
+    <br>
+    <br>
+    <br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Max calorie per day</th>
+            <th scope="col">Calorie sum</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.username }}</td>
+                {% if obj.calorie_profile %}
+                    <td>{{ obj.calorie_profile.max_daily_calorie }}</td>
+                {% else %}
+                    <td>No profile</td>
+                {% endif %}
+                <td>{{ obj.calorie_sum }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock content %}

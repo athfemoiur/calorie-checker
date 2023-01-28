@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Home</h1>
+    <br>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Max calorie per day</th>
+            <th scope="col">Calorie sum</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if object.calorie_profile %}
+                <td>{{ object.calorie_profile.max_daily_calorie }}</td>
+            {% else %}
+                <td><a class="btn btn-primary" href="{% url 'calorie_profile_new' %}">Create
+                    Calorie Profile</a></td>
+            {% endif %}
+            <td>{{ object.calorie_sum }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% if object.calorie_profile %}
+        <a class="btn btn-primary" href="{% url 'calorie_profile_edit' %}">Edit Calorie Profile</a>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Calorie</th>
+            <th scope="col">Meal</th>
+            <th scope="col">Date Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in object.foods.all %}
+            <tr>
+                <td>{{ obj.food.name }}</td>
+                <td>{{ obj.food.calorie }}</td>
+                <td>{{ obj.get_meal_display }}</td>
+                <td>{{ obj.created_at }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'user_food_new' %}">Add Food that you eat</a>
+
+
+{% endblock content %}

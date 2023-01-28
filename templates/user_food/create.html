@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <h1>Add Food that you eat</h1>
+    <form action="" method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-success" type="submit">Add</button>
+    </form>
+    <br>
+
+    <p>If your Food is not in the list you can add it</p>
+    <a class="btn btn-primary" href="{% url 'food_new' %}">Add Food</a>
+{% endblock content %}
