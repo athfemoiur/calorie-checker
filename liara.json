@@ -1,0 +1,6 @@
+{
+  "app": "athfemoiur",
+  "disks": [
+    {"name":  "sqlite", "mountTo":  "data"}
+  ]
+}
