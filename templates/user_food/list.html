@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Foods you have eaten</h1>
+    <a class="btn btn-warning" href="{% url 'user_food_new' %}">Add</a>
+    <br>
+    <br>
     <table class="table table-striped">
         <thead>
         <tr>
